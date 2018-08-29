@@ -5,8 +5,8 @@ checkout scm
 stage('Build'){
 docker.image('trion/ng-cli').inside{
 sh 'npm install'
-sh -ng build --progress false --prod --aot'
-sh -tar -cvzf dist.tar.gz --strip-components=1 dist'
+sh 'ng build --progress false --prod --aot'
+sh 'tar -cvzf dist.tar.gz --strip-components=1 dist'
 }
 archive 'dist.tar.gz'
 }
